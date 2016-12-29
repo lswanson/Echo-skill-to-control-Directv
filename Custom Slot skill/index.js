@@ -62,10 +62,6 @@ DTVControl.prototype.intentHandlers = {
                 break;
 				
 				case "power":
-				case "power on":
-				case "power off":
-				case "on":
-				case "off":
                         path = '/remote/processKey?key=power&hold=keyPress';
                 break;
 				
