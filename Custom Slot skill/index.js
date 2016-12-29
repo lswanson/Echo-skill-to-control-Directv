@@ -5,7 +5,8 @@ var http = require('http'); // if going through a proxy that uses SSL change to 
 // In my case I had to move receiver to DMZ
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-var local_ip = 'XXX.XXX.XXX.XXX';
+var IP_ADDRESS = process.env.PUBLIC_IP_ADDRESS;        
+
 //externalIP or FQDN //////////////////////////////////////////////////////////////////////////
 //var local_ip = '<some fqdn>';
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -61,6 +62,10 @@ DTVControl.prototype.intentHandlers = {
                 break;
 				
 				case "power":
+				case "power on":
+				case "power off":
+				case "on":
+				case "off":
                         path = '/remote/processKey?key=power&hold=keyPress';
                 break;
 				
@@ -316,8 +321,21 @@ DTVControl.prototype.intentHandlers = {
 					path = '/tv/tune?major=209&minor=65535';
                 
 				break;
-				
-        
+
+				case "NBC":
+					path = '/tv/tune?major=009&minor=65535';
+                
+				break;
+
+				case "CBS":
+					path = '/tv/tune?major=004&minor=65535';
+                
+				break;
+
+				case "ABC":
+					path = '/tv/tune?major=007&minor=65535';
+                
+				break;
 				
 				default:
                 
@@ -333,7 +351,7 @@ DTVControl.prototype.intentHandlers = {
 				
         } 
 		var options = {
-                     host: local_ip,
+                     host: IP_ADDRESS,
                      port: 8080, // default port for DTV interface
                      path: '' + path, // Modify if path is prefixed 
                      method: 'GET' //, //(remove first comment slashes if using the "auth" option below)
