@@ -3,6 +3,9 @@ DirectvIntent find {Control}
 DirectvIntent go to {Control}
 DirectvIntent {Control}
 DirectvIntent turn on {Control}
+DirectvIntent turn off {Control}
+DirectvIntent turn {Control} on
+DirectvIntent turn {Control} off 
 DirectvIntent go back to {Control}
 DirectvIntent back to {Control}
 DirectvIntent try {Control}
@@ -34,6 +37,8 @@ DirectvIntent find {Channel}
 DirectvIntent find channel {Channel}
 DirectvIntent go to {Channel}
 DirectvIntent go to channel {Channel}
+DirectvIntent to go to {Channel}
+DirectvIntent to go to channel {Channel}
 DirectvIntent turn on {Channel}
 DirectvIntent turn on channel {Channel}
 DirectvIntent go back to {Channel}
